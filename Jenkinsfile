@@ -2,6 +2,8 @@ node {
     def appName = 'gceme'
     def feSvcName = "${appName}-frontend"
     def imageTag = "${username}/${appName}:${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
+	def docker-user = ""
+	def docker-password = ""
 
     checkout scm
 
@@ -22,8 +24,8 @@ node {
         //sh("docker login -u ${username} -p ${password}")
 		withCredentials([usernamePassword(credentialsId: '9f6d9439-b733-4bdf-a862-b44b1b11821a', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
 
-			def docker-user = env.USERNAME
-			def docker-password = env.PASSWORD
+			docker-user = env.USERNAME
+			docker-password = env.PASSWORD
 			sh("docker login -u ${docker-user} -p ${docker-password}")
 		}
 		
