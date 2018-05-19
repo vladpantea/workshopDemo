@@ -20,9 +20,9 @@ node {
 	//9f6d9439-b733-4bdf-a862-b44b1b11821a
     stage('Push image to registry') {
         //sh("docker login -u ${username} -p ${password}")
-		withCredentials([usernamePassword(credentialsId: '9f6d9439-b733-4bdf-a862-b44b1b11821a', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
+		withCredentials([usernamePassword(credentialsId: '9f6d9439-b733-4bdf-a862-b44b1b11821a', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
 
-			sh("docker login -u ${env.USERNAME} -p ${env.PASSWORD}")
+			sh("docker login -u ${USER} -p ${PASS}")
 		}
 		
         sh("docker push ${imageTag}")
