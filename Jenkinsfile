@@ -2,8 +2,6 @@ node {
     def appName = 'gceme'
     def feSvcName = "${appName}-frontend"
     def imageTag = "${username}/${appName}:${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
-	def docker-user = ""
-	def docker-password = ""
 
     checkout scm
 
