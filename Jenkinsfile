@@ -1,7 +1,7 @@
 node {
     def appName = 'gceme'
     def feSvcName = "${appName}-frontend"
-    def imageTag = "${username}/${appName}:${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
+    def imageTag = "vladpantea/${appName}:${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
 
     checkout scm
 
