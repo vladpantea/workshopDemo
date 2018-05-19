@@ -24,9 +24,7 @@ node {
         //sh("docker login -u ${username} -p ${password}")
 		withCredentials([usernamePassword(credentialsId: '9f6d9439-b733-4bdf-a862-b44b1b11821a', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
 
-			docker-user = env.USERNAME
-			docker-password = env.PASSWORD
-			sh("docker login -u ${docker-user} -p ${docker-password}")
+			sh("docker login -u ${env.USERNAME} -p ${env.PASSWORD}")
 		}
 		
         sh("docker push ${imageTag}")
